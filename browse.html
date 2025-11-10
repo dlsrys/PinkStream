@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinkStream - Music Streaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/home.css">
+
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <!-- Rest of page content -->
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                
+                // Highlight the active link
+                const currentPath = window.location.pathname.split('/').pop(); // Gets the filename (e.g., 'index.html')
+                let activeId;
+                switch (currentPath) {
+                    case 'home.html':
+                        activeId = 'nav-home';
+                        break;
+                    case 'browse.html':
+                        activeId = 'nav-browse';
+                        break;
+                    case 'radio.html':
+                        activeId = 'nav-radio';
+                        break;
+                    case 'library.html':
+                        activeId = 'nav-library';
+                        break;
+                    case 'playlists.html':
+                        activeId = 'nav-playlists';
+                        break;
+                    default:
+                        activeId = null;
+                }
+                if (activeId) {
+                    document.getElementById(activeId).classList.add('active');
+                }
+            });
+    </script>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <div id="homePage">
+            <!-- Featured Section -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Featured Playlists</h2>
+                    <a href="#" class="view-all">View all</a>
+                </div>
+                <div class="card-grid">
+                    <div class="card" onclick="playPlaylist()">
+                        <div class="card-image">🔥</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="card-title">Today's Top Hits</div>
+                        <div class="card-subtitle">50 songs</div>
+                    </div>
+                    <div class="card" onclick="playPlaylist()">
+                        <div class="card-image">🌙</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="card-title">Chill Vibes</div>
+                        <div class="card-subtitle">35 songs</div>
+                    </div>
+                    <div class="card" onclick="playPlaylist()">
+                        <div class="card-image">💪</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="card-title">Workout Mix</div>
+                        <div class="card-subtitle">42 songs</div>
+                    </div>
+                    <div class="card" onclick="playPlaylist()">
+                        <div class="card-image">📚</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="card-title">Study Focus</div>
+                        <div class="card-subtitle">28 songs</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recently Played -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>Recently Played</h2>
+                </div>
+                <div class="track-list">
+                    <div class="track-item" onclick="playSong('Electric Soul', 'Neon Beats')">
+                        <div class="track-number">1</div>
+                        <div class="track-info">
+                            <div class="track-title">Electric Soul</div>
+                            <div class="track-artist">Neon Beats</div>
+                        </div>
+                        <div class="track-album">Synth Wave</div>
+                        <div class="track-duration">3:42</div>
+                    </div>
+                    <div class="track-item" onclick="playSong('Digital Love', 'Cyber Dreams')">
+                        <div class="track-number">2</div>
+                        <div class="track-info">
+                            <div class="track-title">Digital Love</div>
+                            <div class="track-artist">Cyber Dreams</div>
+                        </div>
+                        <div class="track-album">Future Pop</div>
+                        <div class="track-duration">4:15</div>
+                    </div>
+                    <div class="track-item" onclick="playSong('Starlight', 'Luna Echo')">
+                        <div class="track-number">3</div>
+                        <div class="track-info">
+                            <div class="track-title">Starlight</div>
+                            <div class="track-artist">Luna Echo</div>
+                        </div>
+                        <div class="track-album">Neon Nights</div>
+                        <div class="track-duration">3:28</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Releases -->
+            <section class="section">
+                <div class="section-header">
+                    <h2>New Releases <span class="badge">NEW</span></h2>
+                </div>
+                <div class="card-grid">
+                    <div class="card" onclick="playAlbum()">
+                        <div class="card-image">🎵</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="card-title">Future Sounds</div>
+                        <div class="card-subtitle">Various Artists</div>
+                    </div>
+                    <div class="card" onclick="playAlbum()">
+                        <div class="card-image">🎸</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="card-title">Rock Legends</div>
+                        <div class="card-subtitle">Classic Rock</div>
+                    </div>
+                    <div class="card" onclick="playAlbum()">
+                        <div class="card-image">🎹</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="card-title">Piano Dreams</div>
+                        <div class="card-subtitle">Instrumental</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+            <section class="section">
+                <div class="section-header">
+                    <h2>Top Charts</h2>
+                </div>
+                <div class="track-list">
+                    <div class="track-item">
+                        <div class="track-number"><i class="fas fa-trophy" style="color: #FFC107;"></i></div>
+                        <div class="track-info">
+                            <div class="track-title">Midnight Dreams</div>
+                            <div class="track-artist">Luna Echo</div>
+                        </div>
+                        <div class="track-album">Neon Nights</div>
+                        <div class="track-duration">3:45</div>
+                    </div>
+                    <div class="track-item">
+                        <div class="track-number">2</div>
+                        <div class="track-info">
+                            <div class="track-title">Neon Lights</div>
+                            <div class="track-artist">Cyber Wave</div>
+                        </div>
+                        <div class="track-album">Digital Era</div>
+                        <div class="track-duration">4:02</div>
+                    </div>
+                    <div class="track-item">
+                        <div class="track-number">3</div>
+                        <div class="track-info">
+                            <div class="track-title">Sunset Drive</div>
+                            <div class="track-artist">Retro Vision</div>
+                        </div>
+                        <div class="track-album">80s Vibes</div>
+                        <div class="track-duration">3:55</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Library Page -->
+        <div id="libraryPage" class="hidden">
+            <section class="section">
+                <div class="section-header">
+                    <h2>Your Library</h2>
+                    <button style="background: #8A2BE2; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 25px; cursor: pointer;">
+                        <i class="fas fa-plus"></i> Create Playlist
+                    </button>
+                </div>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-image">❤️</div>
+                        <div class="card-title">Liked Songs</div>
+                        <div class="card-subtitle">127 songs</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">⭐</div>
+                        <div class="card-title">Favorites</div>
+                        <div class="card-subtitle">45 songs</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">🎵</div>
+                        <div class="card-title">My Mix</div>
+                        <div class="card-subtitle">82 songs</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profilePage" class="hidden">
+            <section class="section">
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #8A2BE2, #FF2D95); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                        👤
+                    </div>
+                    <h2 style="margin-bottom: 0.5rem;">Music Lover</h2>
+                    <p style="color: #B3B3B3; margin-bottom: 1rem;">member@pinkstream.com</p>
+                    <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #8A2BE2;">127</div>
+                            <div style="color: #B3B3B3; font-size: 0.9rem;">Followers</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #8A2BE2;">342</div>
+                            <div style="color: #B3B3B3; font-size: 0.9rem;">Following</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #8A2BE2;">23</div>
+                            <div style="color: #B3B3B3; font-size: 0.9rem;">Playlists</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <h2>Public Playlists</h2>
+                </div>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-image">🎧</div>
+                        <div class="card-title">My Chill Mix</div>
+                        <div class="card-subtitle">Public • 28 songs</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">🏃</div>
+                        <div class="card-title">Workout Beats</div>
+                        <div class="card-subtitle">Public • 35 songs</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Player -->
+    <div class="player">
+        <div class="now-playing">
+            <div class="album-art">🎵</div>
+            <div class="song-info">
+                <h4 id="currentSongTitle">Midnight Dreams</h4>
+                <p id="currentSongArtist">Luna Echo</p>
+            </div>
+            <button style="background: none; border: none; color: #B3B3B3; cursor: pointer; font-size: 1.1rem; margin-left: 1rem;">
+                <i class="fas fa-heart"></i>
+            </button>
+        </div>
+        
+        <div class="player-controls">
+            <div class="control-buttons">
+                <button><i class="fas fa-random">

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/library.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <!-- Rest of page content -->
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                
+                // Highlight the active link
+                const currentPath = window.location.pathname.split('/').pop(); // Gets the filename (e.g., 'index.html')
+                let activeId;
+                switch (currentPath) {
+                    case 'home.html':
+                        activeId = 'nav-home';
+                        break;
+                    case 'browse.html':
+                        activeId = 'nav-browse';
+                        break;
+                    case 'radio.html':
+                        activeId = 'nav-radio';
+                        break;
+                    case 'library.html':
+                        activeId = 'nav-library';
+                        break;
+                    case 'playlists.html':
+                        activeId = 'nav-playlists';
+                        break;
+                    default:
+                        activeId = null;
+                }
+                if (activeId) {
+                    document.getElementById(activeId).classList.add('active');
+                }
+            });
+    </script>
+
+    <div class="main-content">
+        <h1>Your Library</h1>
+        <p class="subtitle">All your music in one place</p>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="liked">❤️ Liked Songs</button>
+            <button class="tab" data-tab="playlists">📋 Playlists</button>
+            <button class="tab" data-tab="albums">💿 Albums</button>
+            <button class="tab" data-tab="artists">🎤 Artists</button>
+            <button class="tab" data-tab="songs">🎵 Songs</button>
+        </div>
+
+        <div id="liked" class="content active">
+            <div class="list-view">
+                <div class="list-item">
+                    <div class="list-item-image">🎵</div>
+                    <div class="list-item-info">
+                        <div class="list-item-title">Midnight Dreams</div>
+                        <div class="list-item-subtitle">Luna Eclipse</div>
+                    </div>
+                    <div class="list-item-duration">3:45</div>
+                    <div class="heart">♥</div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-image">🎶</div>
+                    <div class="list-item-info">
+                        <div class="list-item-title">Summer Vibes</div>
+                        <div class="list-item-subtitle">The Coastal Band</div>
+                    </div>
+                    <div class="list-item-duration">4:12</div>
+                    <div class="heart">♥</div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-image">🎼</div>
+                    <div class="list-item-info">
+                        <div class="list-item-title">Electric Sunset</div>
+                        <div class="list-item-subtitle">Neon Pulse</div>
+                    </div>
+                    <div class="list-item-duration">3:28</div>
+                    <div class="heart">♥</div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-image">🎸</div>
+                    <div class="list-item-info">
+                        <div class="list-item-title">Road Trip Anthem</div>
+                        <div class="list-item-subtitle">Highway Heroes</div>
+                    </div>
+                    <div class="list-item-duration">5:01</div>
+                    <div class="heart">♥</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="playlists" class="content">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-image">
+                        📋
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">Chill Vibes</div>
+                    <div class="card-subtitle">32 songs</div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        🏃
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">Workout Mix</div>
+                    <div class="card-subtitle">45 songs</div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        🌙
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">Night Drive</div>
+                    <div class="card-subtitle">28 songs</div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        ☕
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">Coffee Shop</div>
+                    <div class="card-subtitle">41 songs</div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        🎉
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">Party Hits</div>
+                    <div class="card-subtitle">56 songs</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="albums" class="content">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-image">
+                        💿
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">Midnight Tales</div>
+                    <div class="card-subtitle">Luna Eclipse</div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        🌊
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">Ocean Dreams</div>
+                    <div class="card-subtitle">The Coastal Band</div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        ⚡
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">Electric Nights</div>
+                    <div class="card-subtitle">Neon Pulse</div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        🛣️
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">Highway Stories</div>
+                    <div class="card-subtitle">Highway Heroes</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="artists" class="content">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-image rounded">
+                        🎤
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">Luna Eclipse</div>
+                    <div class="card-subtitle">Artist</div>
+                </div>
+                <div class="card">
+                    <div class="card-image rounded">
+                        🎸
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">The Coastal Band</div>
+                    <div class="card-subtitle">Artist</div>
+                </div>
+                <div class="card">
+                    <div class="card-image rounded">
+                        🎹
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">Neon Pulse</div>
+                    <div class="card-subtitle">Artist</div>
+                </div>
+                <div class="card">
+                    <div class="card-image rounded">
+                        🥁
+                        <button class="play-btn">▶</button>
+                    </div>
+                    <div class="card-title">Highway Heroes</div>
+                    <div class="card-subtitle">Artist</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="songs" class="content">
+            <div class="list-view">
+                <div class="list-item">
+                    <div class="list-item-image">🎵</div>
+                    <div class="list-item-info">
+                        <div class="list-item-title">Midnight Dreams</div>
+                        <div class="list-item-subtitle">Luna Eclipse • Midnight Tales</div>
+                    </div>
+                    <div class="list-item-duration">3:45</div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-image">🎶</div>
+                    <div class="list-item-info">
+                        <div class="list-item-title">Summer Vibes</div>
+                        <div class="list-item-subtitle">The Coastal Band • Ocean Dreams</div>
+                    </div>
+                    <div class="list-item-duration">4:12</div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-image">🎼</div>
+                    <div class="list-item-info">
+                        <div class="list-item-title">Electric Sunset</div>
+                        <div class="list-item-subtitle">Neon Pulse • Electric Nights</div>
+                    </div>
+                    <div class="list-item-duration">3:28</div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-image">🎸</div>
+                    <div class="list-item-info">
+                        <div class="list-item-title">Road Trip Anthem</div>
+                        <div class="list-item-subtitle">Highway Heroes • Highway Stories</div>
+                    </div>
+                    <div class="list-item-duration">5:01</div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-image">🎹</div>
+                    <div class="list-item-info">
+                        <div class="list-item-title">City Lights</div>
+                        <div class="list-item-subtitle">Neon Pulse • Electric Nights</div>
+                    </div>
+                    <div class="list-item-duration">4:33</div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-image">🥁</div>
+                    <div class="list-item-info">
+                        <div class="list-item-title">Rhythm of the Night</div>
+                        <div class="list-item-subtitle">Luna Eclipse • Midnight Tales</div>
+                    </div>
+                    <div class="list-item-duration">3:55</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.dataset.tab;
+                
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.play-btn, .card, .list-item').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.stopPropagation();
+                console.log('Playing...');
+            });
+        });
+    </script>
+</body>
+</html>

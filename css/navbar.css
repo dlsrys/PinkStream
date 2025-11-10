@@ -1,0 +1,152 @@
+/* Header/Navigation */
+.header {
+    background-color: #121212;
+    border-bottom: 1px solid #1E1E1E;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.pink {
+    color: #FF2D95 ;
+}
+
+.stream {
+    color: #8A2BE2;
+}
+
+.logo i {
+    font-size: 2rem;
+}
+
+.search-bar {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 2rem;
+    position: relative;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    border-radius: 50px;
+    border: none;
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+    font-size: 0.95rem;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #B3B3B3;
+}
+
+.header-icons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.header-icons button {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.header-icons button:hover {
+    color: #8A2BE2;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #FF2D95;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+        a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    width: 250px;
+    height: calc(100vh - 70px - 100px);
+    background-color: #121212;
+    border-right: 1px solid #1E1E1E;
+    padding: 2rem 0;
+    overflow-y: auto;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.95rem;
+}
+
+.nav-links li:hover,
+.nav-links li.active {
+    background: linear-gradient(90deg, #8A2BE2 0%, transparent 100%);
+    color: #FFFFFF;
+}
+
+.nav-links i {
+    width: 20px;
+    color: #B3B3B3;
+}
+
+.nav-links li:hover i,
+.nav-links li.active i {
+    color: #FF2D95 ;
+}
+
+.nav-section {
+    margin-top: 2rem;
+    padding: 0 2rem;
+}
+
+.nav-section h3 {
+    font-size: 0.75rem;
+    color: #B3B3B3;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
